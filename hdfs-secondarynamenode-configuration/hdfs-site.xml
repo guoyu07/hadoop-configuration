@@ -18,11 +18,6 @@
     </property>
 
     <property>
-        <name>dfs.namenode.secondary.rpc-address</name>
-        <value>192.168.100.104:9001</value>
-    </property>
-
-    <property>
         <name>dfs.namenode.secondary.http-address</name>
         <value>192.168.100.104:50071</value>
     </property>
