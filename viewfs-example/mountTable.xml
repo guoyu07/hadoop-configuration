@@ -1,0 +1,16 @@
+<configuration>
+  <property>
+    <name>fs.viewfs.mounttable.myCluster.link./tmp</name>
+    <value>hdfs://192.168.100.102:9000/tmp</value>
+  </property>
+
+  <property>
+    <name>fs.viewfs.mounttable.myCluster.link./data1</name>
+    <value>hdfs://192.168.100.102:9000/data1</value>
+  </property>
+
+  <property>
+    <name>fs.viewfs.mounttable.myCluster.link./data2</name>
+    <value>hdfs://192.168.100.104:9000/data2</value>
+  </property>
+</configuration>

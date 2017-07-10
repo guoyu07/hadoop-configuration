@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+
+    <property>
+        <name>dfs.nameservices</name>
+        <value>nameservice1,nameservice2</value>
+        <description>指定所有的命名空间</description>
+    </property>
+
+    <property>
+        <name>dfs.ha.namenodes.nameservice1</name>
+        <value>nn11,nn12</value>
+        <description>指定每个命名空间下的namenodes</description>
+    </property>
+    <property>
+        <name>dfs.ha.namenodes.nameservice2</name>
+        <value>nn21,nn22</value>
+        <description>指定每个命名空间下的namenodes</description>
+    </property>
+
+    <property>
+        <name>dfs.namenode.rpc-address.nameservice1.nn11</name>
+        <value>192.168.100.102:9000</value>
+        <description>nn11的rpc通信地址</description>
+    </property>
+    <property>
+        <name>dfs.namenode.http-address.nameservice1.nn11</name>
+        <value>192.168.100.102:50070</value>
+        <description>nn11的http通信地址</description>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address.nameservice1.nn12</name>
+        <value>192.168.100.103:9000</value>
+        <description>nn12的rpc通信地址</description>
+    </property>
+    <property>
+        <name>dfs.namenode.http-address.nameservice1.nn12</name>
+        <value>192.168.100.103:50070</value>
+        <description>nn12的http通信地址</description>
+    </property>
+
+    <property>
+        <name>dfs.namenode.rpc-address.nameservice2.nn21</name>
+        <value>192.168.100.104:9000</value>
+        <description>nn21的rpc通信地址</description>
+    </property>
+    <property>
+        <name>dfs.namenode.http-address.nameservice2.nn21</name>
+        <value>192.168.100.104:50070</value>
+        <description>nn21的http通信地址</description>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address.nameservice2.nn22</name>
+        <value>192.168.100.105:9000</value>
+        <description>nn22的rpc通信地址</description>
+    </property>
+    <property>
+        <name>dfs.namenode.http-address.nameservice2.nn22</name>
+        <value>192.168.100.105:50070</value>
+        <description>nn22的http通信地址</description>
+    </property>
+
+    <property>
+        <name>dfs.namenode.shared.edits.dir</name>
+        <value>qjournal://192.168.100.101:8485;192.168.100.102:8485;192.168.100.103:8485/namespace-{{namespace_name}}</value>
+        <description>
+            指定namenode的edits元数据在
+            JournalNode上的存放位置
+        </description>
+    </property>
+
+    <property>
+        <name>dfs.journalnode.edits.dir</name>
+        <value>/home/vagrant/journal_node</value>
+        <description>指定JournalNode在本地磁盘存放数据的位置</description>
+    </property>
+
+    <property>
+        <name>dfs.ha.automatic-failover.enabled.{{namespace_name}}</name>
+        <value>true</value>
+        <description>开启namenode失败自动切换</description>
+    </property>
+
+    <property>
+        <name>dfs.client.failover.proxy.provider.{{namespace_name}}</name>
+        <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+        <description>配置失败自动切换的实现方式</description>
+    </property>
+
+    <property>
+        <name>dfs.ha.fencing.methods</name>
+<value>
+sshfence
+shell(/bin/true)
+</value>
+        <description>配置隔离机制方法，多个机制用换行分隔</description>
+    </property>
+
+    <property>
+        <name>dfs.ha.fencing.ssh.private-key-files</name>
+        <value>/home/vagrant/.ssh/id_rsa</value>
+        <description>使用sshfence机制时许需要ssh免密登陆</description>
+    </property>
+
+    <property>
+        <name>dfs.ha.fencing.ssh.connect-timeout</name>
+        <value>30000</value>
+        <description>配置sshfence隔离机制超时时间</description>
+    </property>
+</configuration>
+
