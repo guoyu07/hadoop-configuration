@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+
+    <property>
+        <name>dfs.namenode.rpc-address</name>
+        <value>192.168.100.103:9001</value>
+    </property>
+
+    <property>
+        <name>dfs.namenode.http-address</name>
+        <value>192.168.100.103:50071</value>
+    </property>
+
+    <property>
+        <name>dfs.namenode.secondary.rpc-address</name>
+        <value>192.168.100.104:9001</value>
+    </property>
+
+    <property>
+        <name>dfs.namenode.secondary.http-address</name>
+        <value>192.168.100.104:50071</value>
+    </property>
+</configuration>
+
